@@ -9,9 +9,6 @@ import tempfile
 import urllib.request
 import tensorflow as tf
 import os
-# Downloading files
-# train_file = tempfile.NamedTemporaryFile()
-# test_file = tempfile.NamedTemporaryFile()
 
 def download_data():
 	data_name = "adult.data"

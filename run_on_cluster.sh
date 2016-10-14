@@ -10,17 +10,17 @@ ip="$(hostname --ip-address)"
 
 if [ ${ip} == ${ps_host1} ]; then
 	# launch the code on each machine 
-	python3 example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=ps --task_index=0
+	python3 distributed_example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=ps --task_index=0
 fi
 
 if [ ${ip} == ${ps_host2} ]; then
-	python3 example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=ps --task_index=1 
+	python3 distributed_example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=ps --task_index=1 
 fi
 
 if [ ${ip} == ${worker1} ]; then
-	python3 example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=worker --task_index=0
+	python3 distributed_example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=worker --task_index=0
 fi
 
 if [ ${ip} == ${worker2} ]; then
-	python3 example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=worker --task_index=1
+	python3 distributed_example.py --ps_hosts=$ps_host1:$port,$ps_host2:$port --worker_hosts=$worker1:$port,$worker2:$port --job_name=worker --task_index=1
 fi
